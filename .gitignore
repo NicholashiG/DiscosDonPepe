@@ -28,6 +28,7 @@ hs_err_pid*
 *.project
 /bin/
 /.settings/
+/.metadata/
 
 # archivos y carpetas generadas por IDE Intellij Idea
 
