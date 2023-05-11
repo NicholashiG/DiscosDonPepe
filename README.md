@@ -14,21 +14,19 @@ La aplicación debe tener interfaz gráfica de usuario y además debe poder guar
 ##### Del lado del usuario:
 1.	Iniciar sesión: Los usuarios deben poder iniciar sesión usando su username y contraseña, una vez iniciada la sesión debe cargar todas las canciones que el usuario tenga guardadas.
 2.	Buscar: El usuario debe poder buscar música en la tienda, hay tres formas de buscar:
- 1.	Búsqueda Artistas: Debido a que los artistas se guardan en un árbol binario, su búsqueda es muy eficiente, por lo tanto, dado el nombre de un Artista debe retornar su lista de canciones.
- 2.	Búsqueda O: Dados los valores de dos o más atributos de una Canción, retorne una lista con las canciones con al menos un atributo que coincida.
- 3.	Búsqueda Y: Dados los valores de dos o más atributos de una Canción, retorne una lista con las canciones con todos los atributos que coincidan.
- 4.	Para la búsqueda O y la búsqueda Y: Usar Hilos de ejecución de tal manera que un hilo se encargue de buscar en el lado derecho del árbol, y otro hilo busque en el lado izquierdo del árbol.
+ -	Búsqueda Artistas: Debido a que los artistas se guardan en un árbol binario, su búsqueda es muy eficiente, por lo tanto, dado el nombre de un Artista debe retornar su lista de canciones.
+ -	Búsqueda O: Dados los valores de dos o más atributos de una Canción, retorne una lista con las canciones con al menos un atributo que coincida.
+ -	Búsqueda Y: Dados los valores de dos o más atributos de una Canción, retorne una lista con las canciones con todos los atributos que coincidan.
+ -	Para la búsqueda O y la búsqueda Y: Usar Hilos de ejecución de tal manera que un hilo se encargue de buscar en el lado derecho del árbol, y otro hilo busque en el lado izquierdo del árbol.
 3.	Guardar/Eliminar una canción en la lista del usuario: El usuario puede guardar cualquier canción en su lista de canciones, así como eliminar de su lista las canciones que desee.
 4.	Deshacer: Deshacer una inserción o eliminación
 5.	Rehacer: Rehacer la función que se deshizo anteriormente.
 
 6.	Ordenamiento: El usuario debe poner ordenar su lista de canciones. Se debe poder ordenar usando cualquier atributo de la canción.
 
-~~7.	Reproducir una canción: Cuando se de click a una canción se debe poder reproducir en una ventana nueva, esta es la razón por la que cada canción tiene una url de youtube. Esta funcionalidad necesita embeber una url que contiene un video de youtube en JAVA, se debe investigar cómo hacerlo. Como base pueden revisar las siguientes páginas: http://djproject.sourceforge.net/ns/ https://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe y otros.~~
-
 
 ##### Del lado del administrador:
-~~1.	Iniciar sesión: El administrador debe poder iniciar sesión (usar la misma interfaz de inicio de sesión del usuario), la aplicación solo tiene un administrador, cuyo username es admin y contraseña es $aDmiN.~~
+1.	Iniciar sesión: El administrador debe poder iniciar sesión (usar la misma interfaz de inicio de sesión del usuario), la aplicación solo tiene un administrador, cuyo username es admin y contraseña es $aDmiN.
 
 2.	Crear artistas - Agregar canción: El administrador debe poder crear Artistas y agregarle canciones. 
 3.	Consultar el género con más canciones en la Tienda y el Artista más popular.
