@@ -2,23 +2,32 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class DiscosDonPepe implements Serializable{
-	
-	ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-    ArrayList<Cancion> listaCanciones = new ArrayList<Cancion>();
-    ArrayList<Artista> listaArtistas = new ArrayList<Artista>();
-    Usuario usuarioLogeado;
-	
-    public DiscosDonPepe() {
+public class DiscosDonPepe implements Serializable {
+
+	HashMap<String, String> hashMapUsuarios = new HashMap<>();
+	ArrayList<Cancion> listaCanciones = new ArrayList<Cancion>();
+	ArbolBinarioArtistas arbolArtistas = new ArbolBinarioArtistas();
+	Usuario usuarioLogeado;
+
+	public DiscosDonPepe() {
 	}
 
-	public ArrayList<Usuario> getListaUsuarios() {
-		return listaUsuarios;
+	public HashMap<String, String> getHashMapUsuarios() {
+		return hashMapUsuarios;
 	}
 
-	public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-		this.listaUsuarios = listaUsuarios;
+	public void setHashMapUsuarios(HashMap<String, String> hashMapUsuarios) {
+		this.hashMapUsuarios = hashMapUsuarios;
+	}
+
+	public ArbolBinarioArtistas getArbolArtistas() {
+		return arbolArtistas;
+	}
+
+	public void setArbolArtistas(ArbolBinarioArtistas arbolArtistas) {
+		this.arbolArtistas = arbolArtistas;
 	}
 
 	public ArrayList<Cancion> getListaCanciones() {
@@ -29,14 +38,6 @@ public class DiscosDonPepe implements Serializable{
 		this.listaCanciones = listaCanciones;
 	}
 
-	public ArrayList<Artista> getListaArtistas() {
-		return listaArtistas;
-	}
-
-	public void setListaArtistas(ArrayList<Artista> listaArtistas) {
-		this.listaArtistas = listaArtistas;
-	}
-
 	public Usuario getUsuarioLogeado() {
 		return usuarioLogeado;
 	}
@@ -44,11 +45,5 @@ public class DiscosDonPepe implements Serializable{
 	public void setUsuarioLogeado(Usuario usuarioLogeado) {
 		this.usuarioLogeado = usuarioLogeado;
 	}
-    
-    
-    
-    
-    
-    
 
 }

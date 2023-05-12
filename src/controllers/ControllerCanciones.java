@@ -12,77 +12,77 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class ControllerCanciones implements Initializable{
+public class ControllerCanciones implements Initializable {
 
-    SingletonController control = SingletonController.getInstance();
-	
-    @FXML
-    private Button btnAtras;
+	SingletonController control = SingletonController.getInstance();
 
-    @FXML
-    private Button btnEditar;
+	@FXML
+	private Button btnAtras;
 
-    @FXML
-    private Button btnEliminar;
+	@FXML
+	private Button btnEditar;
 
-    @FXML
-    private Button btnEscogerImg;
+	@FXML
+	private Button btnEliminar;
 
-    @FXML
-    private Button btnGuardarCambios;
+	@FXML
+	private Button btnEscogerImg;
 
-    @FXML
-    private Button btnNuevo;
+	@FXML
+	private Button btnGuardarCambios;
 
-    @FXML
-    private ChoiceBox<?> choiceTipo;
+	@FXML
+	private Button btnNuevo;
 
-    @FXML
-    private ListView<?> listViewArticulos;
+	@FXML
+	private ChoiceBox<?> choiceTipo;
 
-    @FXML
-    private TextField txtDescripcion;
+	@FXML
+	private ListView<?> listViewArticulos;
 
-    @FXML
-    private TextField txtNombre;
+	@FXML
+	private TextField txtDescripcion;
 
-    @FXML
-    private Label txtRutaArchivo;
+	@FXML
+	private TextField txtNombre;
 
-    @FXML
-    void atras(ActionEvent event) {
+	@FXML
+	private Label txtRutaArchivo;
 
-    }
+	@FXML
+	void atras(ActionEvent event) {
 
-    @FXML
-    void editar(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	void editar(ActionEvent event) {
 
-    @FXML
-    void eliminar(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	void eliminar(ActionEvent event) {
 
-    @FXML
-    void escogerImagen(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	void escogerImagen(ActionEvent event) {
 
-    @FXML
-    void guardarCambios(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	void guardarCambios(ActionEvent event) {
 
-    @FXML
-    void nuevo(ActionEvent event) {
+	}
 
-    }
+	@FXML
+	void nuevo(ActionEvent event) {
+
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

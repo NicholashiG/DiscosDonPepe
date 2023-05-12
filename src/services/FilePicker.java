@@ -7,14 +7,15 @@ import java.rmi.server.ExportException;
 
 public class FilePicker {
 
-    FileChooser f = new FileChooser();
+	FileChooser f = new FileChooser();
 
-    public FilePicker() {
-        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-    }
-    public File getDireccionArchivo() {
-        File direccion = f.showOpenDialog(null);
-        return direccion;
-    }
+	public FilePicker() {
+		f.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+	}
+
+	public File getDireccionArchivo() {
+		File direccion = f.showOpenDialog(null);
+		return direccion;
+	}
 
 }

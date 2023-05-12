@@ -1,13 +1,15 @@
 package model;
 
-public class Nodo<T> {
-    T dato;
-    Nodo<T> anterior;
-    Nodo<T> siguiente;
+import java.io.Serializable;
 
-    Nodo(T dato) {
-        this.dato = dato;
-    }
+public class Nodo<T> implements Serializable {
+	T dato;
+	Nodo<T> anterior;
+	Nodo<T> siguiente;
+
+	Nodo(T dato) {
+		this.dato = dato;
+	}
 
 	public T getDato() {
 		return dato;
@@ -32,6 +34,5 @@ public class Nodo<T> {
 	public void setSiguiente(Nodo<T> siguiente) {
 		this.siguiente = siguiente;
 	}
-    
-    
+
 }

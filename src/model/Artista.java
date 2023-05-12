@@ -2,20 +2,20 @@ package model;
 
 import java.io.Serializable;
 
-public class Artista implements Serializable{
-	
-	//Variables globales
+public class Artista implements Serializable {
+
+	// Variables globales
 	private int codigo;
 	private String nombre;
 	private String nacionalidad;
 	private boolean isGrupo;
-	
-	//Constructor vacío
+
+	// Constructor vacío
 	public Artista() {
 		super();
 	}
 
-	//Constructor con variables
+	// Constructor con variables
 	public Artista(int codigo, String nombre, String nacionalidad, boolean isGrupo) {
 		super();
 		this.codigo = codigo;
@@ -23,8 +23,8 @@ public class Artista implements Serializable{
 		this.nacionalidad = nacionalidad;
 		this.isGrupo = isGrupo;
 	}
-	
-	//Getters y setters
+
+	// Getters y setters
 	public int getCodigo() {
 		return codigo;
 	}
@@ -56,7 +56,5 @@ public class Artista implements Serializable{
 	public void setGrupo(boolean isGrupo) {
 		this.isGrupo = isGrupo;
 	}
-	
-	
 
 }

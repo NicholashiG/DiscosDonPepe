@@ -2,25 +2,25 @@ package model;
 
 import java.io.Serializable;
 
-public class Administrador implements Serializable{
+public class Administrador implements Serializable {
 
-	//Variables globales
+	// Variables globales
 	private String username;
 	private String contrasena;
-	
-	//Constructor vacío
+
+	// Constructor vacío
 	public Administrador() {
 		super();
 	}
-	
-	//Constructor con variables
+
+	// Constructor con variables
 	public Administrador(String username, String contrasena) {
 		super();
 		this.username = username;
 		this.contrasena = contrasena;
 	}
 
-	//Getters y setters
+	// Getters y setters
 	public String getUsername() {
 		return username;
 	}
@@ -36,7 +36,5 @@ public class Administrador implements Serializable{
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-	
-	
-	
+
 }

@@ -1,6 +1,8 @@
 package model;
 
-public class NodoArtista {
+import java.io.Serializable;
+
+public class NodoArtista implements Serializable {
 	Artista artista;
 	NodoArtista izquierdo;
 	NodoArtista derecho;
@@ -34,6 +36,5 @@ public class NodoArtista {
 	public void setDerecho(NodoArtista derecho) {
 		this.derecho = derecho;
 	}
-	
-	
+
 }

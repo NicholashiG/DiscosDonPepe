@@ -2,20 +2,20 @@ package model;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 
-	//Variables globales
+	// Variables globales
 	private String username;
 	private String contrasena;
 	private String email;
 	private ListaCircular cancionesPropias;
-	
-	//Constructor vacío
+
+	// Constructor vacío
 	public Usuario() {
 		super();
 	}
 
-	//Constructor con variables
+	// Constructor con variables
 	public Usuario(String username, String contrasena, String email, ListaCircular cancionesPropias) {
 		super();
 		this.username = username;
@@ -23,8 +23,8 @@ public class Usuario implements Serializable{
 		this.email = email;
 		this.cancionesPropias = cancionesPropias;
 	}
-	
-	//Getters y setters
+
+	// Getters y setters
 	public String getUsername() {
 		return username;
 	}
@@ -56,7 +56,5 @@ public class Usuario implements Serializable{
 	public void setCancionesPropias(ListaCircular cancionesPropias) {
 		this.cancionesPropias = cancionesPropias;
 	}
-	
-	
-	
+
 }

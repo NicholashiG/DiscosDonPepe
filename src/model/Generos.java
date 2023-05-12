@@ -1,5 +1,5 @@
 package model;
 
-public enum Generos{
+public enum Generos {
 
 }
