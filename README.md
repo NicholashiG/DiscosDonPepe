@@ -1,5 +1,16 @@
 ##  TIENDA DE MÚSICA - PROYECTO FINAL
 
+
+------------------
+
+### To-do
+
+- Hacer las interfaces gráficas de cada uno de los cruds para administrar las canciones, los artistas y (no sé qué tan necesario es) para los usuarios
+- Generar toda la lógica en los controladores para guardar y recorrer la información en las estructuras de datos solicitados: Lista Doblemente Enlazada para las canciones; Lista Circular para las canciones propias de usuario; Árbol Binario para los artistas; HashMap para los usuarios
+
+
+-----------------
+
 Las estructuras de datos son utilizadas para guardar información de manera organizada y para consultar o recuperar dicha información eficientemente, por lo tanto, el proyecto final del espacio académico estructura de datos consiste en desarrollar un proyecto donde se practique el uso de las estructuras vistas en clase durante todo el semestre. En consecuencia con lo anterior, la tienda de música Storify necesita una aplicación moderna donde sus usuarios puedan iniciar sesión, buscar canciones, guardarlas como favoritas y reproducirlas dentro de la misma aplicación. 
 
 #### La información requerida es:
