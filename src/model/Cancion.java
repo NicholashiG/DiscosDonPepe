@@ -6,6 +6,7 @@ public class Cancion implements Serializable{
 	
 	//Variables globales
 	private int codigo;
+	private Artista artista; 
 	private String nombreCancion;
 	private String nombreAlbum;
 	private String URLAlbum;
@@ -20,10 +21,11 @@ public class Cancion implements Serializable{
 	}
 
 	//Constructor con variables globales
-	public Cancion(int codigo, String nombreCancion, String nombreAlbum, String uRLAlbum, int anio, double duracion,
+	public Cancion(int codigo, Artista artista, String nombreCancion, String nombreAlbum, String uRLAlbum, int anio, double duracion,
 			Generos genero, String uRLYT) {
 		super();
 		this.codigo = codigo;
+		this.artista = artista;
 		this.nombreCancion = nombreCancion;
 		this.nombreAlbum = nombreAlbum;
 		URLAlbum = uRLAlbum;
@@ -66,6 +68,13 @@ public class Cancion implements Serializable{
 		this.nombreAlbum = nombreAlbum;
 	}
 
+	public Artista getArtista() {
+		return artista;
+	}
+
+	public void setArtista(Artista artista) {
+		this.artista = artista;
+	}
 
 	public String getURLAlbum() {
 		return URLAlbum;
