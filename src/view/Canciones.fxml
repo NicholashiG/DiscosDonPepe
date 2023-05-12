@@ -12,30 +12,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerCanciones">
    <children>
       <FlowPane layoutX="10.0" layoutY="10.0" prefHeight="65.0" prefWidth="858.0">
          <children>
-            <Label text="Editor de Artículos" textAlignment="RIGHT">
+            <Label text="Editor de Canciones" textAlignment="RIGHT">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
          </children>
       </FlowPane>
+      <ListView fx:id="listViewCanciones" layoutX="27.0" layoutY="106.0" prefHeight="350.0" prefWidth="400.0" />
       <Separator layoutX="9.0" layoutY="90.0" prefHeight="10.0" prefWidth="874.0" />
-      <ListView fx:id="listViewArticulos" layoutX="27.0" layoutY="106.0" prefHeight="350.0" prefWidth="400.0" />
       <Button fx:id="btnAtras" layoutX="805.0" layoutY="467.0" mnemonicParsing="false" onAction="#atras" text="Atrás" />
       <Button fx:id="btnGuardarCambios" layoutX="383.0" layoutY="467.0" mnemonicParsing="false" onAction="#guardarCambios" text="Guardar Cambios" />
       <Button fx:id="btnEditar" layoutX="107.0" layoutY="468.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
       <Button fx:id="btnNuevo" layoutX="44.0" layoutY="468.0" mnemonicParsing="false" onAction="#nuevo" text="Nuevo" />
       <Button fx:id="btnEliminar" layoutX="167.0" layoutY="468.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
-      <FlowPane layoutX="459.0" layoutY="165.0" prefHeight="211.0" prefWidth="400.0">
+      <FlowPane layoutX="433.0" layoutY="106.0" prefHeight="350.0" prefWidth="447.0">
          <children>
-            <VBox prefHeight="210.0" prefWidth="135.0">
+            <VBox prefHeight="218.0" prefWidth="166.0">
                <children>
-                  <Label prefHeight="47.0" prefWidth="99.0" text="Nombre:">
+                  <Label prefHeight="47.0" prefWidth="167.0" text="Nombre Canción: ">
                      <padding>
                         <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
                      </padding>
@@ -43,7 +42,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="75.0" text="Tipo:">
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="167.0" text="Nombre Álbum: ">
                      <padding>
                         <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
                      </padding>
@@ -51,7 +50,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="57.0" prefHeight="47.0" prefWidth="127.0" text="Descripción:">
+                  <Label layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="103.0" text="Género:">
                      <padding>
                         <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
                      </padding>
@@ -59,7 +58,31 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="104.0" prefHeight="47.0" prefWidth="75.0" text="Foto:">
+                  <Label layoutX="10.0" layoutY="104.0" prefHeight="47.0" prefWidth="103.0" text="Duración:">
+                     <padding>
+                        <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="104.0" prefHeight="47.0" prefWidth="75.0" text="Año: ">
+                     <padding>
+                        <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="57.0" prefHeight="47.0" prefWidth="127.0" text="Carátula:">
+                     <padding>
+                        <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="198.0" prefHeight="47.0" prefWidth="146.0" text="URL YouTube:">
                      <padding>
                         <Insets bottom="13.0" left="20.0" right="13.0" top="13.0" />
                      </padding>
@@ -71,7 +94,7 @@
             </VBox>
             <VBox layoutX="10.0" layoutY="10.0" prefHeight="218.0" prefWidth="264.0">
                <children>
-                  <TextField fx:id="txtNombre">
+                  <TextField fx:id="txtNombreCancion">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="9.0" />
                      </padding>
@@ -79,12 +102,20 @@
                         <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
                      </VBox.margin>
                   </TextField>
-                  <ChoiceBox fx:id="choiceTipo" prefHeight="31.0" prefWidth="250.0">
+                  <TextField fx:id="txtNombreAlbum" layoutX="17.0" layoutY="17.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="9.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ChoiceBox fx:id="choiceGenero" prefHeight="31.0" prefWidth="250.0">
                      <VBox.margin>
                         <Insets bottom="7.0" left="7.0" right="7.0" top="9.0" />
                      </VBox.margin>
                   </ChoiceBox>
-                  <TextField fx:id="txtDescripcion" layoutX="17.0" layoutY="62.0">
+                  <TextField fx:id="txtDuracion" layoutX="17.0" layoutY="62.0">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="9.0" />
                      </padding>
@@ -92,11 +123,27 @@
                         <Insets bottom="7.0" left="7.0" right="7.0" top="9.0" />
                      </VBox.margin>
                   </TextField>
+                  <TextField fx:id="txtAnio" layoutX="17.0" layoutY="156.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="9.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </VBox.margin>
+                  </TextField>
                   <Button fx:id="btnEscogerImg" mnemonicParsing="false" onAction="#escogerImagen" prefHeight="31.0" prefWidth="250.0" text="Escoger imagen">
                      <VBox.margin>
                         <Insets bottom="7.0" left="7.0" right="7.0" top="12.0" />
                      </VBox.margin>
                   </Button>
+                  <TextField fx:id="txtURLYT" layoutX="17.0" layoutY="201.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="11.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
          </children>

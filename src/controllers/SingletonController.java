@@ -41,12 +41,12 @@ public class SingletonController {
 
 	// -------------------- SERIALIZACION XML Y TEXTO PLANO --------------------
 
-	public DiscosDonPepe cargarCasaSubastasAnunciosBinario() throws IOException {
+	public DiscosDonPepe cargarDIscosDonPepeBinario() throws IOException {
 		DiscosDonPepe discos = Persistencia.cargarRecursoDiscosBinario();
 		return discos;
 	}
 
-	public void guardarCasaSubastasBinario(DiscosDonPepe subastasQuindio) throws IOException {
+	public void guardarDiscosDonPepeBinario(DiscosDonPepe subastasQuindio) throws IOException {
 		Persistencia.guardarRecursoDiscosBinario(subastasQuindio);
 	}
 

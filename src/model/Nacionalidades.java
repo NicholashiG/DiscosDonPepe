@@ -1,0 +1,26 @@
+package model;
+
+public enum Nacionalidades {
+
+	ESTADOUNIDENSE, 
+	BRITANICO, 
+	JAPONES, 
+	CANADIENSE, 
+	ALEMAN, 
+	ITALIANO, 
+	FRANCES, 
+	ESPAÑOL, 
+	SUECO, 
+	NORUEGO, 
+	DANES, 
+	FINLANDES, 
+	AUSTRALIANO, 
+	BRASILENO, 
+	ARGENTINO, 
+	MEXICANO, 
+	COLOMBIANO, 
+	COREANO, 
+	CHINO, 
+	RUSO;
+	
+}
