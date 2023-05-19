@@ -6,32 +6,23 @@ import java.util.NoSuchElementException;
 public class ListaCircular<T> implements Serializable {
 
 	private Nodo<T> cabeza; // Referencia al primer nodo de la lista
-	private int tamaño; // Tamaño actual de la lista
+	private int tamano; // Tamaño actual de la lista
 
-	// Clase interna que representa un nodo de la lista
-	private static class Nodo<T> {
-		T dato;
-		Nodo<T> siguiente;
-
-		Nodo(T dato) {
-			this.dato = dato;
-		}
-	}
 
 	// Constructor de la lista
 	public ListaCircular() {
 		cabeza = null;
-		tamaño = 0;
+		tamano = 0;
 	}
 
 	// Verifica si la lista está vacía
 	public boolean estaVacia() {
-		return (tamaño == 0);
+		return (tamano == 0);
 	}
 
 	// Devuelve el tamaño actual de la lista
-	public int tamaño() {
-		return tamaño;
+	public int tamano() {
+		return tamano;
 	}
 
 	// Agrega un nuevo nodo al final de la lista
@@ -49,7 +40,7 @@ public class ListaCircular<T> implements Serializable {
 			nuevoNodo.siguiente = cabeza.siguiente;
 			cabeza.siguiente = nuevoNodo;
 		}
-		tamaño++;
+		tamano++;
 	}
 
 	// Elimina el primer nodo de la lista y devuelve su dato
@@ -59,7 +50,7 @@ public class ListaCircular<T> implements Serializable {
 			throw new NoSuchElementException();
 		}
 		T dato = cabeza.dato;
-		if (tamaño == 1) {
+		if (tamano == 1) {
 			// Si la lista tiene un solo nodo, se elimina la cabeza y la lista queda vacía
 			cabeza = null;
 		} else {
@@ -67,7 +58,7 @@ public class ListaCircular<T> implements Serializable {
 			// la cabeza se actualiza
 			cabeza.siguiente = cabeza.siguiente.siguiente;
 		}
-		tamaño--;
+		tamano--;
 		return dato;
 	}
 
@@ -94,4 +85,24 @@ public class ListaCircular<T> implements Serializable {
 			System.out.println();
 		}
 	}
+	
+	public T[] toArray() {
+        if (tamano == 0) {
+            return null;
+        }
+
+        //Crear un arreglo del tipo genérico T con el tamaño de la lista
+        T[] array = (T[]) new Object[tamano];
+
+        //Recorrer la lista y agregar los elementos al arreglo
+        Nodo<T> nodoActual = cabeza;
+        for (int i = 0; i < tamano; i++) {
+            array[i] = nodoActual.getDato();
+            nodoActual = nodoActual.getSiguiente();
+        }
+
+        return array;
+    }
+	
+	
 }

@@ -10,7 +10,7 @@
 - Generar toda la lógica en los controladores para guardar y recorrer la información en las estructuras de datos solicitados: Lista Doblemente Enlazada para las canciones; Lista Circular para las canciones propias de usuario; Árbol Binario para los artistas; HashMap para los usuarios
 - Método de deshacer
 - Método de rehacer
-- Ordenamiento de la lista de canciones del usuario por medio de cualquier atributo
+- Ordenamiento de la lista de canciones del usuario por medio de cualquier atributo (Falta llamarlo en los controladores, el método está ya hecho)
 - Consulta de género con más canciones en la tienda y el artista más popular (En este contexto, ¿cómo se ve quién es el más popular? ¿el que tenga más canciones?)
 
 
