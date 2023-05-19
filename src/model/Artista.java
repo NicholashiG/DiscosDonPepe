@@ -9,6 +9,7 @@ public class Artista implements Serializable {
 	private String nombre;
 	private String nacionalidad;
 	private boolean isGrupo;
+	private ListaDoblementeEnlazada<Cancion> canciones;
 
 	// Constructor vacío
 	public Artista() {
@@ -16,12 +17,13 @@ public class Artista implements Serializable {
 	}
 
 	// Constructor con variables
-	public Artista(int codigo, String nombre, String nacionalidad, boolean isGrupo) {
+	public Artista(int codigo, String nombre, String nacionalidad, boolean isGrupo, ListaDoblementeEnlazada<Cancion> canciones) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.nacionalidad = nacionalidad;
 		this.isGrupo = isGrupo;
+		this.canciones = canciones;
 	}
 
 	// Getters y setters
@@ -57,4 +59,14 @@ public class Artista implements Serializable {
 		this.isGrupo = isGrupo;
 	}
 
+	public ListaDoblementeEnlazada<Cancion> getCanciones() {
+		return canciones;
+	}
+
+	public void setCanciones(ListaDoblementeEnlazada<Cancion> canciones) {
+		this.canciones = canciones;
+	}
+
+	
+	
 }

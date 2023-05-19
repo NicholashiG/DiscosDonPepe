@@ -65,6 +65,20 @@ public class ArbolBinarioArtistas implements Serializable {
 		}
 	}
 
+	// Busca un artista en el árbol a partir de un nodo dado y del nombre, y
+	// devuelve la lista de canciones, null si no
+	private ListaDoblementeEnlazada<Cancion> buscarArtistaCanciones(NodoArtista nodo, String nombre) {
+		Artista artistaBuscado = buscar(nodo, nombre);
+		if (artistaBuscado == null) {
+			// Si es nulo, el artista no está en el árbol
+			return null;
+		} else {
+			// Si el artista existe, debe devolver la lista doblemente enlazada
+			// de canciones
+			return artistaBuscado.getCanciones();
+		}
+	}
+
 	// Elimina un artista del árbol a partir del nombre
 	public void eliminar(String nombre) {
 		raiz = eliminar(raiz, nombre);
