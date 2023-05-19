@@ -8,7 +8,7 @@ public class Usuario implements Serializable {
 	private String username;
 	private String contrasena;
 	private String email;
-	private ListaCircular cancionesPropias;
+	private ListaCircular<Cancion> cancionesPropias;
 
 	// Constructor vacío
 	public Usuario() {
@@ -16,7 +16,7 @@ public class Usuario implements Serializable {
 	}
 
 	// Constructor con variables
-	public Usuario(String username, String contrasena, String email, ListaCircular cancionesPropias) {
+	public Usuario(String username, String contrasena, String email, ListaCircular<Cancion> cancionesPropias) {
 		super();
 		this.username = username;
 		this.contrasena = contrasena;
@@ -49,11 +49,11 @@ public class Usuario implements Serializable {
 		this.email = email;
 	}
 
-	public ListaCircular getCancionesPropias() {
+	public ListaCircular<Cancion> getCancionesPropias() {
 		return cancionesPropias;
 	}
 
-	public void setCancionesPropias(ListaCircular cancionesPropias) {
+	public void setCancionesPropias(ListaCircular<Cancion> cancionesPropias) {
 		this.cancionesPropias = cancionesPropias;
 	}
 
