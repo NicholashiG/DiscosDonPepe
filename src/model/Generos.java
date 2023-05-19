@@ -10,7 +10,7 @@ public enum Generos {
 	REGGAE, 
 	BLUES, 
 	POP, 
-	CLÁSICA, 
+	CLASICA, 
 	RNB;
 
 }

@@ -7,6 +7,8 @@ import java.util.List;
 
 public class DiscosDonPepe implements Serializable {
 
+	private static final long serialVersionUID = -6664315431035343066L;
+	
 	HashMap<String, String> hashMapUsuarios = new HashMap<>();
 	ArrayList<Cancion> listaCanciones = new ArrayList<Cancion>();
 	ArbolBinarioArtistas arbolArtistas = new ArbolBinarioArtistas();
@@ -183,4 +185,14 @@ public class DiscosDonPepe implements Serializable {
 	// Fin de búsqueda Y
 	// -------------------
 
+		
+	public void replaceCancion(String codigo, Cancion c) {
+		
+		for(Cancion cancion: listaCanciones) {
+			if (cancion.getCodigo().equals(codigo)) listaCanciones.set(listaCanciones.indexOf(cancion), c);
+		}
+		
+		
+	}
+		
 	}

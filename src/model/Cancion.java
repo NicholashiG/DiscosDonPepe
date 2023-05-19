@@ -1,11 +1,12 @@
 package model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Cancion implements Serializable {
 
 	// Variables globales
-	private int codigo;
+	private String codigo;
 	private String nombreCancion;
 	private String nombreAlbum;
 	private String URLAlbum;
@@ -20,10 +21,10 @@ public class Cancion implements Serializable {
 	}
 
 	// Constructor con variables globales
-	public Cancion(int codigo, String nombreCancion, String nombreAlbum, String uRLAlbum, int anio,
+	public Cancion(String nombreCancion, String nombreAlbum, String uRLAlbum, int anio,
 			double duracion, Generos genero, String uRLYT) {
 		super();
-		this.codigo = codigo;
+		this.codigo = generateCodigo();
 		this.nombreCancion = nombreCancion;
 		this.nombreAlbum = nombreAlbum;
 		URLAlbum = uRLAlbum;
@@ -32,13 +33,18 @@ public class Cancion implements Serializable {
 		this.genero = genero;
 		URLYT = uRLYT;
 	}
+	
+	// Generador de Codigos Unicos.
+	private String generateCodigo() {
+		return UUID.randomUUID().toString();
+	}
 
 	// Getters y setters
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -99,4 +105,10 @@ public class Cancion implements Serializable {
 		URLYT = uRLYT;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return nombreCancion + " - " + nombreAlbum  + "		" + duracion;
+	}
+	
 }

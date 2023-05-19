@@ -9,7 +9,7 @@ public enum Nacionalidades {
 	ALEMAN, 
 	ITALIANO, 
 	FRANCES, 
-	ESPAÑOL, 
+	ESPANOL, 
 	SUECO, 
 	NORUEGO, 
 	DANES, 

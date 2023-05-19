@@ -7,23 +7,23 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 
 	private Nodo<T> cabeza; // Referencia al primer nodo de la lista
 	private Nodo<T> cola; // Referencia al último nodo de la lista
-	private int tamaño; // Tamaño actual de la lista
+	private int tamano; // Tamaño actual de la lista
 
 	// Constructor de la lista
 	public ListaDoblementeEnlazada() {
 		this.cabeza = null;
 		this.cola = null;
-		this.tamaño = 0;
+		this.tamano = 0;
 	}
 
 	// Verifica si la lista está vacía
 	public boolean estaVacia() {
-		return (tamaño == 0);
+		return (tamano == 0);
 	}
 
 	// Devuelve el tamaño de la lista
-	public int tamaño() {
-		return tamaño;
+	public int tamano() {
+		return tamano;
 	}
 
 	// Agrega un nuevo nodo al principio de la lista
@@ -40,7 +40,7 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 		}
 		nuevoNodo.siguiente = cabeza;
 		cabeza = nuevoNodo;
-		tamaño++;
+		tamano++;
 	}
 
 	// Agrega un nuevo nodo al final de la lista
@@ -57,7 +57,7 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 			nuevoNodo.anterior = cola;
 		}
 		cola = nuevoNodo;
-		tamaño++;
+		tamano++;
 	}
 
 	// Elimina el primer nodo de la lista y devuelve su dato
@@ -68,7 +68,7 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 		}
 		T dato = cabeza.dato;
 		cabeza = cabeza.siguiente;
-		tamaño--;
+		tamano--;
 		if (estaVacia()) {
 			// Si la lista quedó vacía después de eliminar el primer nodo, la cola también
 			// se establece en nulo
@@ -87,7 +87,7 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 		}
 		T dato = cola.dato;
 		cola = cola.anterior;
-		tamaño--;
+		tamano--;
 		if (estaVacia()) {
 			// Si la lista quedó vacía después de eliminar el último nodo, la cabeza también
 			// se establece en nulo
@@ -132,7 +132,7 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 	public void limpiar() {
 		cabeza = null;
 		cola = null;
-		tamaño = 0;
+		tamano = 0;
 	}
 
 	// Imprime todos los datos de la lista
