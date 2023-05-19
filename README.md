@@ -5,8 +5,13 @@
 
 ### To-do
 
-- Hacer las interfaces gráficas de cada uno de los cruds para administrar las canciones, los artistas y (no sé qué tan necesario es) para los usuarios
+- Hacer las interfaces gráficas de cada uno de los cruds para administrar/crear/eliminar las canciones, los artistas y para los usuarios
+- Hacer la interfaz gráfica de la página principal de la aplicación
 - Generar toda la lógica en los controladores para guardar y recorrer la información en las estructuras de datos solicitados: Lista Doblemente Enlazada para las canciones; Lista Circular para las canciones propias de usuario; Árbol Binario para los artistas; HashMap para los usuarios
+- Método de deshacer
+- Método de rehacer
+- Ordenamiento de la lista de canciones del usuario por medio de cualquier atributo
+- Consulta de género con más canciones en la tienda y el artista más popular (En este contexto, ¿cómo se ve quién es el más popular? ¿el que tenga más canciones?)
 
 
 -----------------
