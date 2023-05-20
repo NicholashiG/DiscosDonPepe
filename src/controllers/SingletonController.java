@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 
+import model.Artista;
 import model.Cancion;
 import model.DiscosDonPepe;
 import persistencia.Persistencia;
@@ -51,13 +52,12 @@ public class SingletonController {
 	
 	// -------------------- FUNCIONALIDADES PROPIAS --------------------
 	
+	// Canciones
 	
 	// Agrega una cancion a la clase principal
 	public void addCancion (Cancion c) {
 		discos.getListaCanciones().add(c);
-		System.out.println("Cancion Guardada.");
 	}
-	
 	
 
 	public void removeCancion(Cancion c) {
@@ -71,10 +71,20 @@ public class SingletonController {
 	}
 	
 	
+	// Artistas
+	
+	public void addArtista(Artista a) {
+		discos.getArbolArtistas().insertar(a);
+	}
 	
 	
+	public void removeArtista(Artista a) {
+		discos.getArbolArtistas().eliminar(a.getNombre());
+	}
 	
-	
+	public void replaceArtista(Artista actual, Artista nuevo) {
+		discos.getArbolArtistas().replaceArtista(actual, nuevo);
+	}
 	
 	
 	// -------------------- SERIALIZACION XML Y TEXTO PLANO --------------------

@@ -121,7 +121,7 @@
                         </RadioButton>
                      </children>
                   </HBox>
-                  <Button fx:id="btnEscogerCanciones" mnemonicParsing="false" onAction="#escogerImagen" prefHeight="31.0" prefWidth="250.0" text="Escoger canciones del artista">
+                  <Button fx:id="btnEscogerCanciones" mnemonicParsing="false" onAction="#escogerCancion" prefHeight="31.0" prefWidth="250.0" text="Escoger canciones del artista">
                      <VBox.margin>
                         <Insets bottom="7.0" left="7.0" right="7.0" top="12.0" />
                      </VBox.margin>

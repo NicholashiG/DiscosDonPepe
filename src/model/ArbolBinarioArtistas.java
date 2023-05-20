@@ -1,9 +1,13 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ArbolBinarioArtistas implements Serializable {
 
+	private static final long serialVersionUID = -9168874069359112695L;
+	
+	
 	private NodoArtista raiz; // Referencia a la raíz del árbol
 
 	// Constructor del árbol
@@ -40,13 +44,13 @@ public class ArbolBinarioArtistas implements Serializable {
 
 	// Busca un artista en el árbol a partir del nombre y devuelve el artista si se
 	// encuentra, null si no
-	public Artista buscar(String nombre) {
+	public NodoArtista buscar(String nombre) {
 		return buscar(raiz, nombre);
 	}
 
 	// Busca un artista en el árbol a partir de un nodo dado y del nombre, y
 	// devuelve el artista si se encuentra, null si no
-	private Artista buscar(NodoArtista nodo, String nombre) {
+	private NodoArtista buscar(NodoArtista nodo, String nombre) {
 		if (nodo == null) {
 			// Si el nodo es nulo, el artista no está en el árbol
 			return null;
@@ -61,14 +65,14 @@ public class ArbolBinarioArtistas implements Serializable {
 		} else {
 			// Si el nombre del artista es igual al nombre del artista del nodo, se encontró
 			// el artista en el árbol
-			return nodo.artista;
+			return nodo;
 		}
 	}
 
 	// Busca un artista en el árbol a partir de un nodo dado y del nombre, y
 	// devuelve la lista de canciones, null si no
 	private ListaDoblementeEnlazada<Cancion> buscarArtistaCanciones(NodoArtista nodo, String nombre) {
-		Artista artistaBuscado = buscar(nodo, nombre);
+		Artista artistaBuscado = buscar(nodo, nombre).getArtista();
 		if (artistaBuscado == null) {
 			// Si es nulo, el artista no está en el árbol
 			return null;
@@ -124,6 +128,10 @@ public class ArbolBinarioArtistas implements Serializable {
 		}
 		return nodo;
 	}
+	
+	public void replaceArtista(Artista actual, Artista nuevo) {
+		buscar(actual.getNombre()).setArtista(nuevo);
+	}
 
 	// Imprime los artistas del árbol en orden
 	public void imprimirEnOrden() {
@@ -139,4 +147,21 @@ public class ArbolBinarioArtistas implements Serializable {
 			imprimirEnOrden(nodo.derecho);
 		}
 	}
+	
+	public ArrayList<Artista> toArray() {
+		return toArray(new ArrayList<Artista>(), raiz);
+	}
+	
+	public ArrayList<Artista> toArray( ArrayList<Artista> array, NodoArtista nodo) {
+		if (nodo == null) return array;
+		else {
+			System.out.println(nodo.artista);
+			array.add(nodo.getArtista());
+			array = toArray(array,nodo.izquierdo);
+
+			array = toArray(array, nodo.derecho);
+		}
+		return array;
+	}
+	
 }

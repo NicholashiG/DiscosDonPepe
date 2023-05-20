@@ -72,9 +72,7 @@ public class ControllerCanciones implements Initializable {
 	// Agregar Canciones.
 	@FXML
 	void nuevo(ActionEvent event) {
-
 		Cancion c = crearCancion();
-	
 		listViewCanciones.getItems().add(c);
 		control.addCancion(c);
 	}
@@ -105,7 +103,6 @@ public class ControllerCanciones implements Initializable {
 
 	@FXML
 	void select(MouseEvent arg0) {
-		
 		Cancion c = listViewCanciones.getSelectionModel().getSelectedItem();
 		if (c != null) {
 			txtNombreCancion.setText(c.getNombreCancion());

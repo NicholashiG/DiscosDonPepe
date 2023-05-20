@@ -1,11 +1,12 @@
 package model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Artista implements Serializable {
 
 	// Variables globales
-	private int codigo;
+	private String codigo;
 	private String nombre;
 	private String nacionalidad;
 	private boolean isGrupo;
@@ -17,21 +18,26 @@ public class Artista implements Serializable {
 	}
 
 	// Constructor con variables
-	public Artista(int codigo, String nombre, String nacionalidad, boolean isGrupo, ListaDoblementeEnlazada<Cancion> canciones) {
+	public Artista(String nombre, String nacionalidad, boolean isGrupo, ListaDoblementeEnlazada<Cancion> canciones) {
 		super();
-		this.codigo = codigo;
+		this.codigo = generateCodigo();
 		this.nombre = nombre;
 		this.nacionalidad = nacionalidad;
 		this.isGrupo = isGrupo;
 		this.canciones = canciones;
 	}
 
+	// Generador de Codigos Unicos.
+	private String generateCodigo() {
+		return UUID.randomUUID().toString();
+	}
+	
 	// Getters y setters
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
