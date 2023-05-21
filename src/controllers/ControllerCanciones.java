@@ -14,6 +14,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import model.Cancion;
 import model.Generos;
@@ -103,15 +104,19 @@ public class ControllerCanciones implements Initializable {
 
 	@FXML
 	void select(MouseEvent arg0) {
-		Cancion c = listViewCanciones.getSelectionModel().getSelectedItem();
-		if (c != null) {
-			txtNombreCancion.setText(c.getNombreCancion());
-			txtNombreAlbum.setText(c.getNombreAlbum());
-			txtRutaArchivo.setText(c.getURLAlbum());
-			txtAnio.setText("" + c.getAnio());
-			txtDuracion.setText("" + c.getDuracion());
-			choiceGenero.setValue(c.getGenero());		 
-			txtURLYT.setText(c.getURLYT());
+		// Esto verifica si la accion enviada es un doble click, en ese caso,
+		// ejecuta.
+		 if (arg0.getButton().equals(MouseButton.PRIMARY) && arg0.getClickCount() == 2) {
+			Cancion c = listViewCanciones.getSelectionModel().getSelectedItem();
+			if (c != null) {
+				txtNombreCancion.setText(c.getNombreCancion());
+				txtNombreAlbum.setText(c.getNombreAlbum());
+				txtRutaArchivo.setText(c.getURLAlbum());
+				txtAnio.setText("" + c.getAnio());
+				txtDuracion.setText("" + c.getDuracion());
+				choiceGenero.setValue(c.getGenero());		 
+				txtURLYT.setText(c.getURLYT());
+			}
 		}
 	}
 	

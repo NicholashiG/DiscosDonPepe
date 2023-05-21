@@ -14,6 +14,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import model.Artista;
 import model.Nacionalidades;
 
@@ -51,7 +53,7 @@ public class ControllerArtistas implements Initializable {
 	@FXML
 	private RadioButton radioBtnGrupo;
 
-	// mauskherramienta que nos servira mas tarde (initialize)
+	// mauskyherramienta que nos servira mas tarde (initialize)
 	private ToggleGroup toggleGroup = new ToggleGroup();
 	
 	@FXML
@@ -65,12 +67,47 @@ public class ControllerArtistas implements Initializable {
 	@FXML
 	void editar(ActionEvent event) {
 
+		Artista actual = listViewArtistas.getSelectionModel().getSelectedItem();
+		Artista nuevo = crearArtista();
+		control.replaceArtista(actual, nuevo);
+		
+		// reemplazar en la listView:
+		for (Artista a : listViewArtistas.getItems()) {
+			if (a.getNombre().equals(actual.getNombre())) {
+				listViewArtistas.getItems().set(listViewArtistas.getItems().indexOf(a), nuevo);
+				break;
+			}
+		}
+		
+		
 	}
 
 	@FXML
 	void eliminar(ActionEvent event) {
-
+		Artista a = listViewArtistas.getSelectionModel().getSelectedItem();
+		listViewArtistas.getItems().remove(a);
+		control.removeArtista(a);
+		
 	}
+	
+	@FXML
+	void select(MouseEvent arg0) {
+		 Artista a = listViewArtistas.getSelectionModel().getSelectedItem();
+		// Esto verifica si la accion enviada es un doble click, en ese caso,
+		// ejecuta.
+		
+		 if (arg0.getButton().equals(MouseButton.PRIMARY) && arg0.getClickCount() == 2 && a != null) {
+			 txtNombre.setText(a.getNombre());
+			 choiceTipo.setValue(Nacionalidades.valueOf(a.getNacionalidad()));
+			 if (a.isGrupo()) {
+				 radioBtnGrupo.setSelected(true);
+			 } else radioBtnArtista.setSelected(true);
+			 
+			 // En esta parte se cargarian las canciones.
+			 // ...
+		 }
+	}
+	
 
 	@FXML
 	void guardarCambios(ActionEvent event) {

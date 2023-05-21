@@ -36,7 +36,7 @@
          </children>
       </FlowPane>
       <Separator layoutX="19.0" layoutY="100.0" prefHeight="10.0" prefWidth="874.0" />
-      <ListView fx:id="listViewArtistas" layoutX="37.0" layoutY="116.0" prefHeight="350.0" prefWidth="400.0" />
+      <ListView fx:id="listViewArtistas" layoutX="37.0" layoutY="116.0" prefHeight="350.0" prefWidth="400.0" onMouseClicked="#select"/>
       <Button fx:id="btnAtras" layoutX="815.0" layoutY="477.0" mnemonicParsing="false" onAction="#atras" text="Atrás" />
       <Button fx:id="btnGuardarCambios" layoutX="393.0" layoutY="477.0" mnemonicParsing="false" onAction="#guardarCambios" text="Guardar Cambios" />
       <Button fx:id="btnEditar" layoutX="117.0" layoutY="478.0" mnemonicParsing="false" onAction="#editar" text="Editar" />

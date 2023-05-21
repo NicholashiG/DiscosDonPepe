@@ -5,6 +5,10 @@ import java.util.UUID;
 
 public class Artista implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5306084413826207578L;
 	// Variables globales
 	private String codigo;
 	private String nombre;
@@ -74,5 +78,8 @@ public class Artista implements Serializable {
 	}
 
 	
-	
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 }
