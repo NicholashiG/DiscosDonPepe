@@ -97,6 +97,14 @@ public class SingletonController {
 		return discos.buscarCancionesPorNombresVersionO(nombre, album);
 		
 	}
+	
+	// Busqueda Y
+	
+	public ArrayList<Cancion> busquedaY(String anio, String genero) throws InterruptedException {
+		
+		return discos.buscarCancionesPorAnioGeneroVersionY(anio, genero);
+		
+	}
 
 	
 	// -------------------- SERIALIZACION XML Y TEXTO PLANO --------------------

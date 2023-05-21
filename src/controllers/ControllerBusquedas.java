@@ -49,16 +49,15 @@ public class ControllerBusquedas implements Initializable {
 	    		try {
 					listViewO.getItems().setAll(control.busquedaO(txtNombre.getText(), txtAlbum.getText()));
 				} catch (InterruptedException e) {
-					
 					e.printStackTrace();
 				}
 	    	
 	    }
 
 	    @FXML
-	    void busquedaY(ActionEvent event) {
+	    void busquedaY(ActionEvent event) throws InterruptedException {
 
-	    	
+	    	listViewY.getItems().setAll( control.busquedaY(txtAnio.getText(), txtGenero.getText())  );
 	    }
 	    
 	    

@@ -62,9 +62,6 @@ public class DiscosDonPepe implements Serializable {
         int mitad = canciones.size() / 2;
         // Creamos una lista para almacenar las canciones que coincidan con los atributos buscados
         ArrayList<Cancion> resultado = new ArrayList<>();
-        System.out.println(resultado.size());
-
-        System.out.println("Size de la lista de canciones: " + listaCanciones.size());
         
         // Creamos dos objetos Thread para realizar la búsqueda en paralelo
         Thread hiloIzquierda = new Thread(() -> buscarEnMitadNombresVersionO(canciones.subList(0, mitad), nombreCancion, nombreAlbum, resultado));
