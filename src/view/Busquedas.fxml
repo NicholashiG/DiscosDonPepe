@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="600.0" vgap="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerBusquedas">
+   <children>
+      <HBox prefHeight="33.0" prefWidth="520.0" spacing="140.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Busqueda Artistas" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Busqueda O" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Busqueda Y" />
+         </children>
+      </HBox>
+      <HBox prefHeight="33.0" prefWidth="520.0" spacing="50.0">
+         <children>
+            <TextField fx:id="txtArtistas" onAction="#buscarArtista" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="txtNombre" onAction="#busquedaO" prefHeight="200.0" prefWidth="200.0" promptText="Nombre de la cancion" />
+            <TextField fx:id="txtAnio" onAction="#busquedaY" prefHeight="200.0" prefWidth="200.0" promptText="Año" />
+         </children>
+      </HBox>
+      <HBox prefHeight="33.0" prefWidth="520.0" spacing="50.0">
+         <children>
+            <TextField fx:id="txtO" disable="true" editable="false" opacity="0.0" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="txtAlbum" onAction="#busquedaO" prefHeight="200.0" prefWidth="200.0" promptText="Album" />
+            <TextField fx:id="txtGenero" onAction="#busquedaY" prefHeight="200.0" prefWidth="200.0" promptText="Genero" />
+         </children>
+      </HBox>
+      <HBox prefHeight="200.0" prefWidth="520.0" spacing="50.0">
+         <children>
+            <ListView fx:id="listViewArtistas" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listViewO" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="listViewY" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+</FlowPane>

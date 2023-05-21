@@ -12,7 +12,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/Artistas.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/Busquedas.fxml"));
+		//FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/Canciones.fxml"));
 		try {
 			Scene scene = new Scene(fxmlLoader.load());
 			primaryStage.setScene(scene);

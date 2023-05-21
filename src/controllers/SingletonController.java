@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import model.Artista;
 import model.Cancion;
@@ -87,6 +88,17 @@ public class SingletonController {
 	}
 	
 	
+	// -------------------- BUSQUEDAS ----------------------------
+	
+	// Busqueda O
+	
+	public ArrayList<Cancion> busquedaO(String nombre, String album) throws InterruptedException {
+		
+		return discos.buscarCancionesPorNombresVersionO(nombre, album);
+		
+	}
+
+	
 	// -------------------- SERIALIZACION XML Y TEXTO PLANO --------------------
 
 	
@@ -112,6 +124,7 @@ public class SingletonController {
 	public void guardarDiscosDonPepeXML() throws IOException {
 		Persistencia.guardarRecursodiscosXML(discos);
 	}
+
 
 
 }

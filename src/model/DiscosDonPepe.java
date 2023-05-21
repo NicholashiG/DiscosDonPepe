@@ -56,12 +56,16 @@ public class DiscosDonPepe implements Serializable {
 	// es decir, que puede coincidir uno de los dos o los dos
     public ArrayList<Cancion> buscarCancionesPorNombresVersionO(String nombreCancion, String nombreAlbum) throws InterruptedException {
         // Seteamos toda la lista de canciones de todos los artistas creados
+    	
     	ArrayList<Cancion> canciones = listaCanciones;
         // Calculamos el índice de la mitad de la lista de canciones
         int mitad = canciones.size() / 2;
         // Creamos una lista para almacenar las canciones que coincidan con los atributos buscados
         ArrayList<Cancion> resultado = new ArrayList<>();
+        System.out.println(resultado.size());
 
+        System.out.println("Size de la lista de canciones: " + listaCanciones.size());
+        
         // Creamos dos objetos Thread para realizar la búsqueda en paralelo
         Thread hiloIzquierda = new Thread(() -> buscarEnMitadNombresVersionO(canciones.subList(0, mitad), nombreCancion, nombreAlbum, resultado));
         Thread hiloDerecha = new Thread(() -> buscarEnMitadNombresVersionO(canciones.subList(mitad, canciones.size()), nombreCancion, nombreAlbum, resultado));
@@ -92,7 +96,6 @@ public class DiscosDonPepe implements Serializable {
         // Esperamos a que terminen los hilos
         hiloIzquierda.join();
         hiloDerecha.join();
-
         // Devolvemos la lista de canciones que coinciden con al menos uno de los atributos buscados
         return resultado;
     }
@@ -100,11 +103,12 @@ public class DiscosDonPepe implements Serializable {
     // Método privado que realiza la búsqueda de canciones en una mitad de la lista, esta forma busca el nombre de la cancion O nombre del album
     // los cuales coincidan con el criterio de búsqueda
     private void buscarEnMitadNombresVersionO(List<Cancion> canciones, String nombreCancion, String nombreAlbum, ArrayList<Cancion> resultado) {
-        // Recorremos la mitad de la lista de canciones
+    	// Recorremos la mitad de la lista de canciones
         for (Cancion cancion : canciones) {
             // Si el nombre de la canción o el nombre del artista coinciden con los atributos buscados, añadimos la canción al resultado
             if (cancion.getNombreCancion().equals(nombreCancion) || cancion.getNombreAlbum().equals(nombreAlbum)) {
                 synchronized (resultado) {
+           
                     resultado.add(cancion);
                 }
             }
@@ -185,6 +189,8 @@ public class DiscosDonPepe implements Serializable {
 	// Fin de búsqueda Y
 	// -------------------
 
+		
+		
 		
 	public void replaceCancion(String codigo, Cancion c) {
 		
