@@ -82,6 +82,16 @@ public class ControllerCanciones implements Initializable {
 	@FXML
 	void atras(ActionEvent event) {
 
+		// Vacia los fields, cambiar luego, no se donde ponerlo xd
+		// a cada rato con esos valores ahi puestos q mam3ra
+		txtNombreCancion.setText("");
+		txtNombreAlbum.setText("");
+		txtRutaArchivo.setText("");
+		txtAnio.setText("");
+		txtDuracion.setText("");
+		choiceGenero.setValue(null);		 
+		txtURLYT.setText("");
+		
 	}
 
 	@FXML
@@ -117,6 +127,7 @@ public class ControllerCanciones implements Initializable {
 				choiceGenero.setValue(c.getGenero());		 
 				txtURLYT.setText(c.getURLYT());
 			}
+			
 		}
 	}
 	
@@ -157,6 +168,7 @@ public class ControllerCanciones implements Initializable {
 	@FXML
 	void guardarCambios(ActionEvent event) {
 		serializar();
+
 	}
 
 
