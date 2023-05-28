@@ -108,7 +108,7 @@ public class Cancion implements Serializable {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return nombreCancion + " - " + nombreAlbum  + "		" + duracion;
+		return nombreCancion + " - " + nombreAlbum  + "		" + (int) duracion/60 +  ":" + (int) duracion%60;
 	}
 	
 }

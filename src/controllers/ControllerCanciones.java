@@ -213,11 +213,19 @@ public class ControllerCanciones implements Initializable {
 	}
 	
 	private Cancion crearCancion() {
+		
+		Double duracion;
+		if (txtDuracion.getText().contains(":")) {
+			String s[] = txtDuracion.getText().split(":");
+			duracion = ( Double.parseDouble(s[0]) * 60 + Double.parseDouble(s[1]) );
+		}
+		else duracion = Double.parseDouble(txtDuracion.getText());
+		
 		Cancion c = new Cancion(txtNombreCancion.getText(),
 				  txtNombreAlbum.getText(),
 				  txtRutaArchivo.getText(),
 				  Integer.parseInt(txtAnio.getText()),
-				  Double.parseDouble(txtDuracion.getText()),
+				  duracion,
 				  choiceGenero.getValue(),
 				  txtURLYT.getText());
 		return c;
