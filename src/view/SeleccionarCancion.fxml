@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerSeleccionarCancion">
+   <children>
+      <HBox alignment="CENTER" prefHeight="389.0" prefWidth="489.0" spacing="15.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="200.0">
+               <children>
+                  <Label text="Lista de Canciones" />
+                  <ListView fx:id="ListViewCanciones" prefHeight="389.0" prefWidth="254.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="359.0" prefWidth="38.0" spacing="50.0">
+               <children>
+                  <Button fx:id="btnDerecha" mnemonicParsing="false" onAction="#PasarDerecha" text="&gt;" />
+                  <Button fx:id="btnIzquierda" mnemonicParsing="false" onAction="#PasarIzquierda" text="&lt;" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="199.0">
+               <children>
+                  <Label text="Canciones Seleccionadas" />
+                  <ListView fx:id="ListViewSeleccionadas" prefHeight="389.0" prefWidth="245.0" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </HBox>
+      <Button fx:id="guardar" layoutX="198.0" layoutY="389.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar y Salir" />
+   </children>
+</Pane>

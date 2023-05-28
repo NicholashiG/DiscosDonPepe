@@ -2,12 +2,14 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,10 +23,14 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Artista;
+import model.Cancion;
+import model.ListaDoblementeEnlazada;
 import model.Nacionalidades;
 
 public class ControllerArtistas implements Initializable {
 
+	ArrayList<Cancion> canciones;
+	
 	SingletonController control = SingletonController.getInstance();
 
 	@FXML
@@ -66,6 +72,12 @@ public class ControllerArtistas implements Initializable {
 	@FXML
 	private TextField txtNombre;
 
+    @FXML
+    private Label cancionesCargadas;
+    
+    @FXML
+    private Label notificacion;
+	
 	@FXML
 	void atras(ActionEvent event) {
 		try {
@@ -120,16 +132,15 @@ public class ControllerArtistas implements Initializable {
 		 Artista a = listViewArtistas.getSelectionModel().getSelectedItem();
 		// Esto verifica si la accion enviada es un doble click, en ese caso,
 		// ejecuta.
-		
 		 if (arg0.getButton().equals(MouseButton.PRIMARY) && arg0.getClickCount() == 2 && a != null) {
 			 txtNombre.setText(a.getNombre());
 			 choiceTipo.setValue(Nacionalidades.valueOf(a.getNacionalidad()));
+			 canciones = a.getCanciones().listaToArray(a.getCanciones());
 			 if (a.isGrupo()) {
 				 radioBtnGrupo.setSelected(true);
 			 } else radioBtnArtista.setSelected(true);
 			 
-			 // En esta parte se cargarian las canciones.
-			 // ...
+			 cancionesCargadas.setText(cancionesAString());
 		 }
 	}
 	
@@ -141,22 +152,60 @@ public class ControllerArtistas implements Initializable {
 	
 	@FXML
 	void escogerCancion(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SeleccionarCancion.fxml"));
+			Parent root = loader.load();
+			ControllerSeleccionarCancion controlador = loader.getController();
+			controlador.cargarCancionesSeleccionadas(canciones);
+			Scene scene = new Scene(root);
+			Stage escogerCancionStage = new Stage();
+			escogerCancionStage.setScene(scene);
+			escogerCancionStage.showAndWait();
+			
+			canciones = controlador.getArrayCancionesSeleccionadas();
+			cancionesCargadas.setText(cancionesAString());
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
+		
+		
 	}
 
 	@FXML
 	void nuevo(ActionEvent event) {
-		Artista a = crearArtista();
-		listViewArtistas.getItems().add(a);
-		control.addArtista(a);
+		
+		// aqui van las verificaciones:
+		
+		if (verificarCampos()) {
+			Artista a = crearArtista();
+			listViewArtistas.getItems().add(a);
+			control.addArtista(a);
+		}
+
+	}
+	
+	private boolean verificarCampos() {
+		
+		if (txtNombre.getText() == null ||
+			choiceTipo.getValue() == null ||
+			canciones == null) {
+			return false;
+		}
+		return true;
 	}
 	
 	
 	private Artista crearArtista() {
+		ListaDoblementeEnlazada<Cancion> lista = new ListaDoblementeEnlazada<Cancion>();
 		Artista a = new Artista(txtNombre.getText(),
 								choiceTipo.getValue().toString(),
 								isGroup(),
-								null);
+								lista.arrayToListaEnlazada(canciones));
+		
+		
 		return a;
 	}
 	
@@ -164,6 +213,9 @@ public class ControllerArtistas implements Initializable {
 		if (radioBtnGrupo.isSelected())return true;
 		return false;
 	}
+	
+	
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -205,7 +257,8 @@ public class ControllerArtistas implements Initializable {
 		choiceTipo.setValue(null);
 		radioBtnArtista.setSelected(false);
 		radioBtnGrupo.setSelected(false);
-
+		canciones = new ArrayList<Cancion>();
+		cancionesCargadas.setText("");
 	}
 
 	// Manda al Singleton la instruccion de serializar la clase principal.
@@ -219,10 +272,7 @@ public class ControllerArtistas implements Initializable {
 	public void closeWindow() {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Principal.fxml"));
-
 			Parent root = loader.load();
-
-
 			Scene scene = new Scene(root);
 			Stage stage = new Stage();
 			stage.setScene(scene);
@@ -232,6 +282,21 @@ public class ControllerArtistas implements Initializable {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	private String cancionesAString() {
+		String s = "Canciones Seleccionadas:\n";
+		for (Cancion c : canciones)
+		s += "["+ c.getNombreCancion() + " - " + c.getNombreAlbum() + "]" + "\n";
+		return s;
+	}
+
+	public ArrayList<Cancion> getCanciones() {
+		return canciones;
+	}
+
+	public void setCanciones(ArrayList<Cancion> canciones) {
+		this.canciones = canciones;
 	}
 	
 }

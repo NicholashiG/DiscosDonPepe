@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class ListaDoblementeEnlazada<T> implements Serializable {
@@ -143,6 +144,26 @@ public class ListaDoblementeEnlazada<T> implements Serializable {
 			actual = actual.siguiente;
 		}
 		System.out.println();
+	}
+	
+	
+	public ListaDoblementeEnlazada<T> arrayToListaEnlazada(ArrayList<T> array) {
+		
+		ListaDoblementeEnlazada<T> lista = new ListaDoblementeEnlazada<T>();
+		for (T objeto : array) lista.agregarAlInicio(objeto);
+		return lista;
+		
+	}
+	
+	public ArrayList<T> listaToArray( ListaDoblementeEnlazada<T> lista ){
+		
+		ArrayList<T> array = new ArrayList<T>();
+		Nodo<T> actual = cabeza;
+		while (actual != null) {	
+			array.add(actual.getDato());
+			actual = actual.siguiente;
+		}
+		return array;
 	}
 
 }

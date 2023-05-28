@@ -26,8 +26,6 @@ public class ControllerCancionCard {
     
     
     public void setData(Cancion c) {
-    	System.out.println(c.getURLAlbum());
-    	System.out.println(getClass().getResourceAsStream(c.getURLAlbum()));
     	Image img = new Image("file:"+c.getURLAlbum());
     	imgCover.setImage(img);
     	txtNombre.setText(c.getNombreCancion());

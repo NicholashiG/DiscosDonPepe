@@ -22,6 +22,7 @@ public class ArbolBinarioArtistas implements Serializable {
 
 	// Inserta un nuevo artista en el árbol
 	public void insertar(Artista artista) {
+		System.out.println("Agregando artista... " + artista.getNombre());
 		raiz = insertar(raiz, artista);
 	}
 
@@ -34,11 +35,14 @@ public class ArbolBinarioArtistas implements Serializable {
 			// Si el nombre del artista es menor que el nombre del artista del nodo, se
 			// inserta en el subárbol izquierdo
 			nodo.izquierdo = insertar(nodo.izquierdo, artista);
-		} else if (artista.getNombre().compareTo(nodo.artista.getNombre()) > 0) {
+			System.out.println("Agregando...");
+		} else if (artista.getNombre().compareTo(nodo.artista.getNombre()) >= 0) {
 			// Si el nombre del artista es mayor que el nombre del artista del nodo, se
 			// inserta en el subárbol derecho
 			nodo.derecho = insertar(nodo.derecho, artista);
+			System.out.println("Agregando...");
 		}
+
 		return nodo;
 	}
 
