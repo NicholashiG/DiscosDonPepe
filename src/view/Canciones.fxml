@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerCanciones">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerCanciones">
    <children>
       <FlowPane layoutX="10.0" layoutY="10.0" prefHeight="65.0" prefWidth="858.0">
          <children>
@@ -33,7 +33,7 @@
             </ImageView>
          </children>
       </FlowPane>
-      <ListView fx:id="listViewCanciones" layoutX="27.0" layoutY="106.0" prefHeight="350.0" prefWidth="400.0" onMouseClicked="#select"/>
+      <ListView fx:id="listViewCanciones" layoutX="27.0" layoutY="106.0" onMouseClicked="#select" prefHeight="350.0" prefWidth="400.0" />
       <Separator layoutX="9.0" layoutY="90.0" prefHeight="10.0" prefWidth="874.0" />
       <Button fx:id="btnAtras" layoutX="805.0" layoutY="467.0" mnemonicParsing="false" onAction="#atras" text="Atrás" />
       <Button fx:id="btnGuardarCambios" layoutX="383.0" layoutY="467.0" mnemonicParsing="false" onAction="#guardarCambios" text="Guardar Cambios" />
@@ -159,5 +159,6 @@
          </children>
       </FlowPane>
       <Label fx:id="txtRutaArchivo" layoutX="446.0" layoutY="383.0" prefHeight="17.0" prefWidth="419.0" />
+      <Button fx:id="btnLimpiar" layoutX="672.0" layoutY="467.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
    </children>
 </AnchorPane>

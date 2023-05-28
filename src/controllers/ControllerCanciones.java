@@ -8,7 +8,10 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -16,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.Cancion;
 import model.Generos;
 import services.FilePicker;
@@ -26,6 +30,9 @@ public class ControllerCanciones implements Initializable {
 
 	@FXML
 	private Button btnAtras;
+
+	@FXML
+	private Button btnLimpiar;
 
 	@FXML
 	private Button btnEditar;
@@ -82,6 +89,32 @@ public class ControllerCanciones implements Initializable {
 	@FXML
 	void atras(ActionEvent event) {
 
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Principal.fxml"));
+
+			Parent root = loader.load();
+
+			ControllerPrincipal controlador = loader.getController();
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+
+			stage.setOnCloseRequest(e -> controlador.closeWindow("view/Canciones.fmxl"));
+			Stage myStage = (Stage) this.btnAtras.getScene().getWindow();
+			myStage.close();
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+		
+
+
+	@FXML
+	void limpiar(ActionEvent event){
 		// Vacia los fields, cambiar luego, no se donde ponerlo xd
 		// a cada rato con esos valores ahi puestos q mam3ra
 		txtNombreCancion.setText("");
@@ -89,9 +122,8 @@ public class ControllerCanciones implements Initializable {
 		txtRutaArchivo.setText("");
 		txtAnio.setText("");
 		txtDuracion.setText("");
-		choiceGenero.setValue(null);		 
+		choiceGenero.setValue(null);
 		txtURLYT.setText("");
-		
 	}
 
 	@FXML
@@ -240,7 +272,26 @@ public class ControllerCanciones implements Initializable {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
-	
+
+
+    public void closeWindow() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Principal.fxml"));
+
+			Parent root = loader.load();
+
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+
+
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
 }

@@ -8,16 +8,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.Cancion;
 
 public class ControllerPrincipal implements Initializable{
 
 	SingletonController control = SingletonController.getInstance();
-	
+	@FXML
+	private Label lblBuscar;
     @FXML
     private HBox cardLayout;
+	@FXML
+	private Button btnCrudArtistas;
+
+	@FXML
+	private Button btnCrudCanciones;
     
     private ArrayList<Cancion> recientes;
      
@@ -66,4 +77,82 @@ public class ControllerPrincipal implements Initializable{
 		
 	}
 
+	@FXML
+	public void crudCanciones() {
+
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Canciones.fxml"));
+
+			Parent root = loader.load();
+
+			ControllerCanciones controlador = loader.getController();
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+
+			stage.setOnCloseRequest(e -> controlador.closeWindow());
+			Stage myStage = (Stage) this.btnCrudCanciones.getScene().getWindow();
+			myStage.close();
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	@FXML
+	public void crudArtistas() {
+
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Artistas.fxml"));
+
+			Parent root = loader.load();
+
+			ControllerArtistas controlador = loader.getController();
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+
+			stage.setOnCloseRequest(e -> controlador.closeWindow());
+			Stage myStage = (Stage) this.btnCrudArtistas.getScene().getWindow();
+			myStage.close();
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	@FXML
+	public void buscar() {
+
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Busquedas.fxml"));
+
+			Parent root = loader.load();
+
+			ControllerBusquedas controlador = loader.getController();
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.show();
+
+			stage.setOnCloseRequest(e -> controlador.closeWindow());
+			Stage myStage = (Stage) this.lblBuscar.getScene().getWindow();
+			myStage.close();
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	public void closeWindow(String recurso) {
+
+	}
 }
