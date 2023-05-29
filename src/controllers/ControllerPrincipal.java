@@ -12,10 +12,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Cancion;
+import model.Generos;
 import model.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ControllerPrincipal implements Initializable{
@@ -33,7 +36,13 @@ public class ControllerPrincipal implements Initializable{
 
 	@FXML
 	private Button btnCrudCanciones;
-    
+
+    @FXML
+    private Label artistaMasPopular;
+
+    @FXML
+    private Label generoMasPopular;
+	
     private ArrayList<Cancion> recientes;
      
 
@@ -57,6 +66,9 @@ public class ControllerPrincipal implements Initializable{
 		control = SingletonController.getInstance();	
 		
 		recientes = control.getDiscos().getListaCanciones();
+		
+		setGeneroMayor(recientes);
+		artistaMasPopular();
 		
 		// cargamos el usuario desde la persistencia
 		user = control.getUsuarioLogeado();
@@ -131,6 +143,41 @@ public class ControllerPrincipal implements Initializable{
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	
+	private Generos mayorGenero(ArrayList<Cancion> canciones) {
+		
+		int mayor = 0;
+		Generos gMayor = null;
+		HashMap<Generos, Integer> repeticiones = new HashMap();
+		for (Cancion c : canciones) {
+			
+			if (repeticiones.get(c.getGenero()) != null) {
+				repeticiones.put(c.getGenero(), repeticiones.get( c.getGenero() ) + 1);
+			} else {
+				repeticiones.put(c.getGenero(), 1);	
+			}
+			
+			
+		}
+		for (Map.Entry<Generos, Integer> entry: repeticiones.entrySet()) {
+			if (entry.getValue() >= mayor) {
+				mayor = entry.getValue();
+				gMayor = entry.getKey();}
+			}
+	return gMayor;
+	}
+	
+	private void artistaMasPopular() {
+		
+
+		artistaMasPopular.setText("El artista mas popular es: " + control.getMasPopular().getNombre());	
+		
+	}
+	
+	private void setGeneroMayor(ArrayList<Cancion> array) {
+		generoMasPopular.setText("El genero mayor es: " + mayorGenero(array).name());
 	}
 
 	@FXML

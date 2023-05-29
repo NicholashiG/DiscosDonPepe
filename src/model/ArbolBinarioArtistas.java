@@ -152,6 +152,24 @@ public class ArbolBinarioArtistas implements Serializable {
 		}
 	}
 	
+	public Artista auxEncontrarPopular() {
+		return encontrarArtistaPopular(raiz, raiz.getArtista());
+	}
+	
+	
+	private Artista encontrarArtistaPopular(NodoArtista nodo, Artista artMayor) {
+		if (nodo != null) {
+			
+			if (nodo.getArtista().getCanciones().tamano() >= artMayor.getCanciones().tamano()) {
+				artMayor = nodo.getArtista();
+			}
+			
+			artMayor = encontrarArtistaPopular(nodo.izquierdo, artMayor);
+			artMayor = encontrarArtistaPopular(nodo.derecho, artMayor);
+		}
+		return artMayor;
+	}
+	
 	public ArrayList<Artista> toArray() {
 		return toArray(new ArrayList<Artista>(), raiz);
 	}

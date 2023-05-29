@@ -89,6 +89,10 @@ public class SingletonController {
 		discos.getArbolArtistas().replaceArtista(actual, nuevo);
 	}
 	
+	public Artista getMasPopular() {
+		return discos.getArbolArtistas().auxEncontrarPopular();
+	}
+	
 	
 	// USER
 	
@@ -99,6 +103,8 @@ public class SingletonController {
 	public void setUsuarioLogeado(Usuario user) {
 		discos.setUsuarioLogeado(user);
 	}
+	
+	
 	
 	
 	// -------------------- BUSQUEDAS ----------------------------
