@@ -1,8 +1,4 @@
 package controllers;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +12,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Cancion;
+import model.Usuario;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class ControllerPrincipal implements Initializable{
 
 	SingletonController control = SingletonController.getInstance();
+	ArrayList<Cancion> canciones;
 	@FXML
 	private Label lblBuscar;
     @FXML
@@ -118,7 +120,7 @@ public class ControllerPrincipal implements Initializable{
 			stage.show();
 
 			stage.setOnCloseRequest(e -> controlador.closeWindow());
-			Stage myStage = (Stage) this.btnCrudArtistas.getScene().getWindow();
+			Stage myStage = (Stage) this.lblBuscar.getScene().getWindow();
 			myStage.close();
 
 		} catch (IOException e) {
@@ -126,6 +128,33 @@ public class ControllerPrincipal implements Initializable{
 		}
 
 	}
+
+	@FXML
+	public void playlist() {
+
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SeleccionarCancionUser.fxml"));
+			Parent root = loader.load();
+			ControllerSeleccionarCancionUser controlador = loader.getController();
+			controlador.cargarCancionesSeleccionadas(canciones);
+			Scene scene = new Scene(root);
+			Stage escogerCancionStage = new Stage();
+			escogerCancionStage.setScene(scene);
+			escogerCancionStage.showAndWait();
+
+			canciones = controlador.getArrayCancionesSeleccionadas();
+
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+
+
+
 
 	@FXML
 	public void buscar() {

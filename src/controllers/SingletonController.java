@@ -98,6 +98,8 @@ public class SingletonController {
 		return discos.buscarCancionesPorNombresVersionO(nombre, album);
 		
 	}
+
+
 	
 	// Busqueda Y
 	
@@ -124,7 +126,7 @@ public class SingletonController {
 	
 	
 // ------------------ XML -------------------------------
-			//  (No se está usando)
+			//  (No se estï¿½ usando)
 	
 	public void cargarDiscosDonPepeXML() throws IOException {
 		this.discos = Persistencia.cargarRecursodiscosXML();

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class ListaCircular<T> implements Serializable {
@@ -8,6 +9,14 @@ public class ListaCircular<T> implements Serializable {
 	private Nodo<T> cabeza; // Referencia al primer nodo de la lista
 	private int tamano; // Tamaño actual de la lista
 
+
+	public Nodo<T> getCabeza() {
+		return cabeza;
+	}
+
+	public void setCabeza(Nodo<T> cabeza) {
+		this.cabeza = cabeza;
+	}
 
 	// Constructor de la lista
 	public ListaCircular() {
@@ -103,6 +112,29 @@ public class ListaCircular<T> implements Serializable {
 
         return array;
     }
-	
-	
+
+	public ArrayList<T> listaCircularToArray(ListaCircular<T> lista) {
+		ArrayList<T> array = new ArrayList<>();
+		Nodo<T> actual = lista.getCabeza();
+
+		if (actual != null) {
+			Nodo<T> siguiente = actual.getSiguiente();
+
+			do {
+				array.add(actual.getDato());
+				actual = siguiente;
+				siguiente = siguiente.getSiguiente();
+			} while (actual != lista.getCabeza());
+		}
+
+		return array;
+	}
+
+
+
+
+
+
+
+
 }

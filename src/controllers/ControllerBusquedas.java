@@ -1,7 +1,10 @@
 package controllers;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,8 +16,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Cancion;
+import model.*;
 import javafx.scene.control.Button;
+
+import javax.swing.*;
 
 
 public class ControllerBusquedas implements Initializable {
@@ -23,6 +28,8 @@ public class ControllerBusquedas implements Initializable {
     private TextField txtArtistas;
     @FXML
     private ListView<Cancion> listViewY;
+    @FXML
+    private ListView<String> listViewArtistas;
 
     @FXML
     private TextField txtNombre;
@@ -43,8 +50,7 @@ public class ControllerBusquedas implements Initializable {
     @FXML
     private TextField txtAlbum;
 
-    public ControllerBusquedas() {
-    }
+
 
     @FXML
     void busquedaO() {
@@ -62,18 +68,41 @@ public class ControllerBusquedas implements Initializable {
         listViewY.getItems().setAll(control.busquedaY(txtAnio.getText(), txtGenero.getText()));
     }
 
-
     @FXML
-    void buscarArtista() {
-
-
+    public void buscarArtista() {
+        ArbolBinarioArtistas arbolArtistas = new ArbolBinarioArtistas();
+        String nombreArtista = txtArtistas.getText();
+        System.out.println(nombreArtista);
+        if (!nombreArtista.isEmpty()) {
+            NodoArtista nodoArtista = arbolArtistas.buscar(nombreArtista);
+            
+            if (nodoArtista != null) {
+                Artista artista = nodoArtista.getArtista();
+                if (artista != null) {
+                    listarCancionesArtista(artista);
+                } else {
+                    listViewArtistas.getItems().clear();
+                    JOptionPane.showMessageDialog(null,"No se encontraron canciones para el artista: " + nombreArtista);
+                }
+            } else {
+                listViewArtistas.getItems().clear();
+                JOptionPane.showMessageDialog(null,"Artista no encontrado: " + nombreArtista);
+            }
+        }
     }
 
-    private void cargarCancionesArtista() {
-
-        // no se ha hecho el metodo xdddddddddd
-
+    // Método para listar las canciones de un artista en el ListView
+    private void listarCancionesArtista(Artista artista) {
+        ListaDoblementeEnlazada lista = new ListaDoblementeEnlazada<>();
+        ArrayList<Cancion> array = new ArrayList<Cancion>();
+        array = lista.listaToArray(artista.getCanciones());
+        listViewArtistas.getItems().clear();
+        for (Cancion cancion : array) {
+            listViewArtistas.getItems().add(cancion.getNombreCancion());
+        }
     }
+
+
 
     @FXML
     void limpiar(ActionEvent event) {
@@ -84,9 +113,32 @@ public class ControllerBusquedas implements Initializable {
         txtAlbum.setText("");
         txtAnio.setText("");
         txtArtistas.setText("");
+        listViewO.getItems().clear();
+        listViewY.getItems().clear();
+    }
+    @FXML
+    void reproducirCancion(ActionEvent event) {
+        if(!listViewY.getSelectionModel().isEmpty()) {
+            Cancion cSeleccionadaY = listViewY.getSelectionModel().getSelectedItem();
+            String linkYoutubeY = cSeleccionadaY.getURLYT();
+            abrirCancion(linkYoutubeY);
+        }
+        if(!listViewO.getSelectionModel().isEmpty()) {
+            Cancion cSeleccionada0 = listViewO.getSelectionModel().getSelectedItem();
+            String linkYoutube0 = cSeleccionada0.getURLYT();
+            abrirCancion(linkYoutube0);
+        }
+
 
     }
 
+    private void abrirCancion(String link) {
+        try {
+            Desktop.getDesktop().browse(new URI(link));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // Carga la clase principal en el Singleton
