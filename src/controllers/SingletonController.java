@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import model.ArbolBinarioArtistas;
 import model.Artista;
 import model.Cancion;
 import model.DiscosDonPepe;
@@ -134,6 +135,11 @@ public class SingletonController {
 	
 	public void guardarDiscosDonPepeXML() throws IOException {
 		Persistencia.guardarRecursodiscosXML(discos);
+	}
+
+	public ArbolBinarioArtistas getArbolArtistas() {
+		// TODO Auto-generated method stub
+		return discos.getArbolArtistas();
 	}
 
 

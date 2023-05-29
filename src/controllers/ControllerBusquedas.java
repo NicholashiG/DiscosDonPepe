@@ -70,7 +70,7 @@ public class ControllerBusquedas implements Initializable {
 
     @FXML
     public void buscarArtista() {
-        ArbolBinarioArtistas arbolArtistas = new ArbolBinarioArtistas();
+        ArbolBinarioArtistas arbolArtistas = control.getArbolArtistas();
         String nombreArtista = txtArtistas.getText();
         System.out.println(nombreArtista);
         if (!nombreArtista.isEmpty()) {
