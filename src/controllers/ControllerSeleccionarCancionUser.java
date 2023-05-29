@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import model.Cancion;
+import model.Usuario;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,8 @@ import java.util.ResourceBundle;
 
 public class ControllerSeleccionarCancionUser implements Initializable {
 	
+	
+
 	
 	SingletonController control = SingletonController.getInstance();
 	
@@ -79,6 +82,9 @@ public class ControllerSeleccionarCancionUser implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		
+		
 		// TODO Auto-generated method stub
 		// Carga la clase principal en el Singleton
 		// No retorna la clase principal, solo actualiza
@@ -91,6 +97,7 @@ public class ControllerSeleccionarCancionUser implements Initializable {
 		// cargada,
 		control = SingletonController.getInstance();	
 		
+
 		
 		// Repopula la ListView con las canciones guardadas
 		

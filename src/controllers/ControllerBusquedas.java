@@ -29,7 +29,7 @@ public class ControllerBusquedas implements Initializable {
     @FXML
     private ListView<Cancion> listViewY;
     @FXML
-    private ListView<String> listViewArtistas;
+    private ListView<Cancion> listViewArtistas;
 
     @FXML
     private TextField txtNombre;
@@ -75,7 +75,6 @@ public class ControllerBusquedas implements Initializable {
         System.out.println(nombreArtista);
         if (!nombreArtista.isEmpty()) {
             NodoArtista nodoArtista = arbolArtistas.buscar(nombreArtista);
-            
             if (nodoArtista != null) {
                 Artista artista = nodoArtista.getArtista();
                 if (artista != null) {
@@ -89,17 +88,18 @@ public class ControllerBusquedas implements Initializable {
                 JOptionPane.showMessageDialog(null,"Artista no encontrado: " + nombreArtista);
             }
         }
+        
+        
+        
     }
 
     // Método para listar las canciones de un artista en el ListView
     private void listarCancionesArtista(Artista artista) {
-        ListaDoblementeEnlazada lista = new ListaDoblementeEnlazada<>();
+        ListaDoblementeEnlazada<Cancion> lista = artista.getCanciones();
         ArrayList<Cancion> array = new ArrayList<Cancion>();
         array = lista.listaToArray(artista.getCanciones());
         listViewArtistas.getItems().clear();
-        for (Cancion cancion : array) {
-            listViewArtistas.getItems().add(cancion.getNombreCancion());
-        }
+        listViewArtistas.getItems().addAll(array);
     }
 
 

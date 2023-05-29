@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class ControllerPrincipal implements Initializable{
 
+	
+	Usuario user;
 	SingletonController control = SingletonController.getInstance();
 	ArrayList<Cancion> canciones;
 	@FXML
@@ -56,6 +58,8 @@ public class ControllerPrincipal implements Initializable{
 		
 		recientes = control.getDiscos().getListaCanciones();
 		
+		// cargamos el usuario desde la persistencia
+		user = control.getUsuarioLogeado();
 		
 		for (Cancion c : recientes) {
 			try {
@@ -132,19 +136,23 @@ public class ControllerPrincipal implements Initializable{
 	@FXML
 	public void playlist() {
 
+		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SeleccionarCancionUser.fxml"));
 			Parent root = loader.load();
 			ControllerSeleccionarCancionUser controlador = loader.getController();
-			controlador.cargarCancionesSeleccionadas(canciones);
+			
+			controlador.cargarCancionesSeleccionadas(user.getCancionesPropias().listaCircularToArray( user.getCancionesPropias() ));
+			
 			Scene scene = new Scene(root);
 			Stage escogerCancionStage = new Stage();
 			escogerCancionStage.setScene(scene);
 			escogerCancionStage.showAndWait();
 
-			canciones = controlador.getArrayCancionesSeleccionadas();
-
-
+			user.setCancionesPropias( user.getCancionesPropias().toListaCircular( controlador.getArrayCancionesSeleccionadas() ) );
+			control.setUsuarioLogeado(user);
+			serializar();
+			
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -180,6 +188,14 @@ public class ControllerPrincipal implements Initializable{
 		}
 
 	}
+	
+	  private void serializar() {
+	        try {
+	            control.guardarDiscosDonPepeBinario(control.discos);
+	        } catch (IOException e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
 
 	public void closeWindow(String recurso) {
 

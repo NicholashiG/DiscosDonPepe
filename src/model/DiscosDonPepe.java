@@ -13,6 +13,7 @@ public class DiscosDonPepe implements Serializable {
 	ArrayList<Cancion> listaCanciones = new ArrayList<Cancion>();
 	ArbolBinarioArtistas arbolArtistas = new ArbolBinarioArtistas();
 	Usuario usuarioLogeado;
+	
 
 	public DiscosDonPepe() {
 	}
@@ -42,7 +43,7 @@ public class DiscosDonPepe implements Serializable {
 	}
 
 	public Usuario getUsuarioLogeado() {
-		return usuarioLogeado;
+		 return usuarioLogeado;
 	}
 
 	public void setUsuarioLogeado(Usuario usuarioLogeado) {

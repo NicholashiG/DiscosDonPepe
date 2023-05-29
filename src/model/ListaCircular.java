@@ -126,8 +126,13 @@ public class ListaCircular<T> implements Serializable {
 				siguiente = siguiente.getSiguiente();
 			} while (actual != lista.getCabeza());
 		}
-
 		return array;
+	}
+	
+	public ListaCircular<T> toListaCircular( ArrayList<T> array) {
+		ListaCircular<T> lista = new ListaCircular<T>();
+		for (T objeto : array) lista.agregar(objeto);
+		return lista;
 	}
 
 

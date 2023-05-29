@@ -7,6 +7,7 @@ import model.ArbolBinarioArtistas;
 import model.Artista;
 import model.Cancion;
 import model.DiscosDonPepe;
+import model.Usuario;
 import persistencia.Persistencia;
 
 public class SingletonController {
@@ -88,6 +89,16 @@ public class SingletonController {
 		discos.getArbolArtistas().replaceArtista(actual, nuevo);
 	}
 	
+	
+	// USER
+	
+	public Usuario getUsuarioLogeado() {
+		return discos.getUsuarioLogeado();
+	}
+	
+	public void setUsuarioLogeado(Usuario user) {
+		discos.setUsuarioLogeado(user);
+	}
 	
 	
 	// -------------------- BUSQUEDAS ----------------------------

@@ -42,14 +42,11 @@ public class ControllerSeleccionarCancion implements Initializable {
     	Cancion select = ListViewSeleccionadas.getSelectionModel().getSelectedItem();
     	
     	if (select != null) {
-    		
     		ListViewSeleccionadas.getItems().remove(select);
     		arrayCancionesSeleccionadas.remove(select);
     		ListViewCanciones.getItems().add(select);
     		
     	}
-    	
-    	
     	
     }
 
@@ -62,7 +59,6 @@ public class ControllerSeleccionarCancion implements Initializable {
     		ListViewCanciones.getItems().remove(select);
     		ListViewSeleccionadas.getItems().add(select);
     		arrayCancionesSeleccionadas.add(select);
-    		
     	}
     	
     }

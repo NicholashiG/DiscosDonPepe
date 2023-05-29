@@ -137,9 +137,11 @@ public class ControllerArtistas implements Initializable {
             Parent root = loader.load();
             ControllerSeleccionarCancion controlador = loader.getController();
             controlador.cargarCancionesSeleccionadas(canciones);
+            
             Scene scene = new Scene(root);
             Stage escogerCancionStage = new Stage();
             escogerCancionStage.setScene(scene);
+            
             escogerCancionStage.showAndWait();
 
             canciones = controlador.getArrayCancionesSeleccionadas();
@@ -180,6 +182,7 @@ public class ControllerArtistas implements Initializable {
 
 
     private Artista crearArtista() {
+    	
         ListaDoblementeEnlazada<Cancion> lista = new ListaDoblementeEnlazada<Cancion>();
         Artista a = new Artista(txtNombre.getText(),
                 choiceTipo.getValue().toString(),
