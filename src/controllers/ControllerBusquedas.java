@@ -62,6 +62,7 @@ public class ControllerBusquedas implements Initializable {
 
     }
 
+
     @FXML
     void busquedaY() throws InterruptedException {
 

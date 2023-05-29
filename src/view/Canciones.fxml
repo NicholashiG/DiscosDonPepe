@@ -158,7 +158,7 @@
             </VBox>
          </children>
       </FlowPane>
-      <Label fx:id="txtRutaArchivo" layoutX="446.0" layoutY="383.0" prefHeight="17.0" prefWidth="419.0" />
+      <Label fx:id="txtRutaArchivo" layoutX="446.0" layoutY="383.0" prefHeight="17.0" prefWidth="419.0" visible="false" />
       <Button fx:id="btnLimpiar" layoutX="672.0" layoutY="467.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
    </children>
 </AnchorPane>

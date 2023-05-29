@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerSeleccionarCancionUser">
+<Pane fx:id="ventana" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerSeleccionarCancionUser">
    <children>
-      <HBox alignment="CENTER" prefHeight="389.0" prefWidth="489.0" spacing="15.0">
+      <HBox alignment="CENTER" layoutY="-13.0" prefHeight="389.0" prefWidth="489.0" spacing="15.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="200.0">
                <children>
@@ -38,6 +40,18 @@
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </padding>
       </HBox>
-      <Button fx:id="guardar" layoutX="198.0" layoutY="389.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar y Salir" />
+      <Button fx:id="guardar" layoutX="65.0" layoutY="383.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar y Salir" />
+      <TextField fx:id="txtNombre" layoutX="499.0" layoutY="118.0" onAction="#busquedaCancionesO" promptText="Nombre canción" />
+      <TextField fx:id="txtAlbum" layoutX="499.0" layoutY="157.0" onAction="#busquedaCancionesO" promptText="Album canción" />
+      <TextField fx:id="txtAnio" layoutX="499.0" layoutY="196.0" onAction="#busquedaCancionesO" promptText="Año de la canción" />
+      <TextField fx:id="txtGenero" layoutX="499.0" layoutY="237.0" onAction="#busquedaCancionesO" promptText="Genero de la canción" />
+      <Label layoutX="543.0" layoutY="73.0" text="Filtrar">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="escuchar" layoutX="333.0" layoutY="383.0" mnemonicParsing="false" onAction="#reproducirCancion" text="Escuchar" />
+      <Button fx:id="limpiar" layoutX="553.0" layoutY="383.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+      <Button fx:id="btnVolver" layoutX="592.0" layoutY="428.0" mnemonicParsing="false" text="Volver" />
    </children>
 </Pane>

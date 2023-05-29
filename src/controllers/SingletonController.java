@@ -111,6 +111,12 @@ public class SingletonController {
 		
 	}
 
+	public ArrayList<Cancion> busquedaCancionesO(String nombre, String album, String anio, String genero) throws InterruptedException {
+
+		return discos.buscarCancionesVersionO(nombre, album, anio, genero);
+
+	}
+
 
 	
 	// Busqueda Y
