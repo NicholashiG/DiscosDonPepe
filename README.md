@@ -5,15 +5,9 @@
 
 ### To-do
 
-- Pulir interfaces gráficas 
-	(Busqueda, Principal.)
-- ~~Hacer que se puedan agregar canciones~~
-- ~~Conectar las ventanas~~
 - Método de deshacer
 - Método de rehacer
 - Consulta de género con más canciones en la tienda y el artista más popular (En este contexto, ¿cómo se ve quién es el más popular? ¿el que tenga más canciones?)
-- Validar Campos en los Crud
-	(Que no se puedan crear artistas o canciones en blanco).
 
 -----------------
 
